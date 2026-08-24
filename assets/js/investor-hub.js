@@ -46,6 +46,7 @@
   let activeFilter = 'all';
 
   const currentLanguage = () => translations[document.documentElement.lang] ? document.documentElement.lang : 'en';
+  const numericLocale = () => `${currentLanguage()}-u-nu-latn`;
   const tr = key => (translations[currentLanguage()] || translations.en)[key] || translations.en[key] || key;
   const localized = value => typeof value === 'object' ? (value[currentLanguage()] || value.en || Object.values(value)[0]) : value;
   const escapeText = value => String(value ?? '').replace(/[&<>'"]/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
@@ -93,10 +94,10 @@
     const language = currentLanguage();
     const start = new Date(`${event.start}T12:00:00`);
     const end = new Date(`${event.end}T12:00:00`);
-    const month = new Intl.DateTimeFormat(language, {month: 'short'}).format(start);
-    const year = new Intl.NumberFormat(language, {useGrouping: false}).format(start.getFullYear());
-    const startDay = new Intl.NumberFormat(language).format(start.getDate());
-    const endDay = new Intl.NumberFormat(language).format(end.getDate());
+    const month = new Intl.DateTimeFormat(numericLocale(), {month: 'short'}).format(start);
+    const year = new Intl.NumberFormat(numericLocale(), {useGrouping: false}).format(start.getFullYear());
+    const startDay = new Intl.NumberFormat(numericLocale()).format(start.getDate());
+    const endDay = new Intl.NumberFormat(numericLocale()).format(end.getDate());
     const connector = language === 'ar' || language === 'ur' ? 'إلى' : language === 'zh' ? '至' : language === 'ko' ? '부터' : 'to';
     return `${startDay} ${connector} ${endDay} ${month} ${year}`;
   }
@@ -144,14 +145,17 @@
     const monthly = Number(document.getElementById('monthlySpend')?.value || 0);
     const perSar = Number(rates[currency] || fallbackRates[currency] || 1);
     const sar = perSar > 0 ? amount / perSar : 0;
-    const language = currentLanguage();
     const capitalElement = document.getElementById('capitalSar');
     const runwayElement = document.getElementById('runwayMonths');
-    if (capitalElement) capitalElement.textContent = new Intl.NumberFormat(language, {style: 'currency', currency: 'SAR', maximumFractionDigits: 0}).format(sar);
-    if (runwayElement) runwayElement.textContent = monthly > 0 ? `${new Intl.NumberFormat(language, {maximumFractionDigits: 1}).format(sar / monthly)} ${tr('months')}` : '—';
+    const formattedCapital = new Intl.NumberFormat(numericLocale(), {maximumFractionDigits: 0}).format(sar);
+    if (capitalElement) {
+      capitalElement.innerHTML = `<img class="riyal-symbol" src="assets/img/saudi-riyal-symbol.svg" alt="" aria-hidden="true"><span dir="ltr">${formattedCapital}</span>`;
+      capitalElement.setAttribute('aria-label', `${tr('capitalSar')} ${formattedCapital}`);
+    }
+    if (runwayElement) runwayElement.textContent = monthly > 0 ? `${new Intl.NumberFormat(numericLocale(), {maximumFractionDigits: 1}).format(sar / monthly)} ${tr('months')}` : '—';
     const message = currentLanguage() === 'ar'
-      ? `السلام عليكم صفوة الاستثمارية. أرغب في حجز استشارة لدخول السوق السعودي. الميزانية التقديرية: ${Math.round(sar).toLocaleString('ar-SA')} ريال. القطاع: ___`
-      : `Hello Safwah Investment. I would like to book a Saudi market entry consultation. Indicative budget: SAR ${Math.round(sar).toLocaleString('en-US')}. Sector: ___`;
+      ? `السلام عليكم صفوة الاستثمارية. أرغب في حجز استشارة لدخول السوق السعودي. الميزانية التقديرية: ⃁ ${Math.round(sar).toLocaleString('en-US')} القطاع: ___`
+      : `Hello Safwah Investment. I would like to book a Saudi market entry consultation. Indicative budget: ⃁ ${Math.round(sar).toLocaleString('en-US')}. Sector: ___`;
     const whatsApp = document.getElementById('hubWhatsApp');
     if (whatsApp) whatsApp.href = `https://wa.me/966583000800?text=${encodeURIComponent(message)}`;
   }
@@ -193,7 +197,7 @@
 
   function updateClock() {
     const clock = document.getElementById('riyadhClock');
-    if (clock) clock.textContent = new Intl.DateTimeFormat(currentLanguage(), {timeZone: 'Asia/Riyadh', hour: '2-digit', minute: '2-digit'}).format(new Date());
+    if (clock) clock.textContent = new Intl.DateTimeFormat(numericLocale(), {timeZone: 'Asia/Riyadh', hour: '2-digit', minute: '2-digit'}).format(new Date());
   }
 
   async function init() {
@@ -213,4 +217,3 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once: true});
   else init();
 })();
-
