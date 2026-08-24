@@ -50,11 +50,18 @@
   const tr = key => (translations[currentLanguage()] || translations.en)[key] || translations.en[key] || key;
   const localized = value => typeof value === 'object' ? (value[currentLanguage()] || value.en || Object.values(value)[0]) : value;
   const escapeText = value => String(value ?? '').replace(/[&<>'"]/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
+  const riyalTextPattern = /(بالريال السعودي|بالريال|ريال سعودي|Saudi riyals?|SAR|саудовских риялах|沙特里亚尔|Suudi riyali|সৌদি রিয়ালে|सऊदी रियाल|سعودی ریال|riais sauditas|사우디 리얄)/gi;
+  const riyalIcon = className => `<img class="${className}" src="assets/img/saudi-riyal-symbol.svg" alt="" aria-hidden="true">`;
+  const currencyMarkup = value => {
+    const text = escapeText(value);
+    riyalTextPattern.lastIndex = 0;
+    return riyalTextPattern.test(text) ? text.replace(riyalTextPattern, riyalIcon('riyal-symbol-inline')) : text;
+  };
 
   function applyLanguage() {
     document.querySelectorAll('[data-hub-i18n]').forEach(element => {
       const key = element.dataset.hubI18n;
-      if (tr(key)) element.textContent = tr(key);
+      if (tr(key)) element.innerHTML = currencyMarkup(tr(key));
     });
     renderMetrics();
     renderFilters();
@@ -71,8 +78,8 @@
     container.innerHTML = hubData.metrics.map(metric => `
       <a class="hub-metric" href="${escapeText(metric.url)}" target="_blank" rel="noopener">
         <span class="metric-label">${escapeText(localized(metric.label))}</span>
-        <strong>${escapeText(metric.value)} <small>${escapeText(metric.unit)}</small></strong>
-        <span class="metric-period">${escapeText(localized(metric.period))}</span>
+        <strong>${escapeText(metric.value)} <small>${currencyMarkup(metric.unit)}</small></strong>
+        <span class="metric-period">${currencyMarkup(localized(metric.period))}</span>
         <span class="metric-source">${escapeText(metric.source)} <b aria-hidden="true">↗</b></span>
       </a>`).join('');
     container.setAttribute('aria-label', `${tr('updated')} ${hubData.updated}`);
@@ -149,7 +156,7 @@
     const runwayElement = document.getElementById('runwayMonths');
     const formattedCapital = new Intl.NumberFormat(numericLocale(), {maximumFractionDigits: 0}).format(sar);
     if (capitalElement) {
-      capitalElement.innerHTML = `<img class="riyal-symbol" src="assets/img/saudi-riyal-symbol.svg" alt="" aria-hidden="true"><span dir="ltr">${formattedCapital}</span>`;
+      capitalElement.innerHTML = `${riyalIcon('riyal-symbol')}<span dir="ltr">${formattedCapital}</span>`;
       capitalElement.setAttribute('aria-label', `${tr('capitalSar')} ${formattedCapital}`);
     }
     if (runwayElement) runwayElement.textContent = monthly > 0 ? `${new Intl.NumberFormat(numericLocale(), {maximumFractionDigits: 1}).format(sar / monthly)} ${tr('months')}` : '—';
