@@ -1,0 +1,94 @@
+{
+  "updated": "2026-08-24",
+  "metrics": [
+    {
+      "value": "3.75",
+      "unit": "SAR",
+      "label": {"en": "Official USD reference", "ar": "السعر الرسمي المرجعي للدولار"},
+      "period": {"en": "Saudi riyals per US dollar", "ar": "ريال سعودي لكل دولار أمريكي"},
+      "source": "Saudi Central Bank",
+      "url": "https://www.sama.gov.sa/en-US/Pages/default.aspx"
+    },
+    {
+      "value": "1.8%",
+      "unit": "YoY",
+      "label": {"en": "Consumer inflation", "ar": "التضخم السنوي"},
+      "period": {"en": "July 2026", "ar": "يوليو 2026"},
+      "source": "GASTAT",
+      "url": "https://www.stats.gov.sa/en/statistics-tabs/-/categories/121421?category=121421&tab=436312"
+    },
+    {
+      "value": "+0.6%",
+      "unit": "YoY",
+      "label": {"en": "Non oil activities", "ar": "الأنشطة غير النفطية"},
+      "period": {"en": "Second quarter 2026", "ar": "الربع الثاني 2026"},
+      "source": "GASTAT",
+      "url": "https://www.stats.gov.sa/en/d/gdp-flash-q2-2026en-pdf"
+    },
+    {
+      "value": "+4.3%",
+      "unit": "MoM",
+      "label": {"en": "Industrial production", "ar": "الإنتاج الصناعي"},
+      "period": {"en": "June 2026", "ar": "يونيو 2026"},
+      "source": "GASTAT",
+      "url": "https://www.stats.gov.sa/en/statistics-tabs/-/categories/123454?category=123454&tab=436312"
+    }
+  ],
+  "events": [
+    {
+      "start": "2026-09-06",
+      "end": "2026-09-08",
+      "city": {"en": "Riyadh", "ar": "الرياض"},
+      "sector": "realestate",
+      "title": {"en": "INDEX Saudi Arabia", "ar": "معرض إندكس السعودية"},
+      "venue": {"en": "Riyadh Front", "ar": "واجهة الرياض"},
+      "url": "https://www.scega.gov.sa/Documents/V5Calendar2026.pdf"
+    },
+    {
+      "start": "2026-09-08",
+      "end": "2026-09-10",
+      "city": {"en": "Riyadh", "ar": "الرياض"},
+      "sector": "industry",
+      "title": {"en": "Saudi Wood Expo", "ar": "معرض الأخشاب والمكائن"},
+      "venue": {"en": "Riyadh International Convention and Exhibition Center", "ar": "مركز الرياض الدولي للمؤتمرات والمعارض"},
+      "url": "https://www.scega.gov.sa/Documents/V5Calendar2026.pdf"
+    },
+    {
+      "start": "2026-10-26",
+      "end": "2026-10-29",
+      "city": {"en": "Riyadh", "ar": "الرياض"},
+      "sector": "health",
+      "title": {"en": "Global Health Exhibition", "ar": "ملتقى الصحة العالمي"},
+      "venue": {"en": "Riyadh Exhibition and Convention Center, Malham", "ar": "مركز الرياض للمعارض والمؤتمرات، ملهم"},
+      "url": "https://www.globalhealthsaudi.com/en/home.html"
+    },
+    {
+      "start": "2026-10-26",
+      "end": "2026-10-29",
+      "city": {"en": "Riyadh", "ar": "الرياض"},
+      "sector": "investment",
+      "title": {"en": "Future Investment Initiative, FII10", "ar": "مبادرة مستقبل الاستثمار، النسخة العاشرة"},
+      "venue": {"en": "King Abdulaziz International Conference Center", "ar": "مركز الملك عبدالعزيز الدولي للمؤتمرات"},
+      "url": "https://fii-institute.org/conferences-and-summits/"
+    },
+    {
+      "start": "2026-11-02",
+      "end": "2026-11-05",
+      "city": {"en": "Riyadh", "ar": "الرياض"},
+      "sector": "industry",
+      "title": {"en": "Saudi Build", "ar": "المعرض السعودي للبناء"},
+      "venue": {"en": "Riyadh International Convention and Exhibition Center", "ar": "مركز الرياض الدولي للمؤتمرات والمعارض"},
+      "url": "https://saudi-build.com/"
+    },
+    {
+      "start": "2026-11-16",
+      "end": "2026-11-19",
+      "city": {"en": "Riyadh", "ar": "الرياض"},
+      "sector": "realestate",
+      "title": {"en": "Cityscape Global", "ar": "سيتي سكيب العالمي"},
+      "venue": {"en": "Riyadh Exhibition and Convention Center, Malham", "ar": "مركز الرياض للمعارض والمؤتمرات، ملهم"},
+      "url": "https://cityscapeglobal.com/"
+    }
+  ]
+}
+
