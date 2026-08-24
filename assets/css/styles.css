@@ -38,3 +38,16 @@ html[dir="rtl"] .brand img{object-position:right center}
 @media(max-width:720px){.brand{width:142px}.brand img{height:auto}.hero-visual{padding-top:150px}.hero-photo{height:220px;inset-inline:18px 0}.hero-visual .visual-frame{margin-inline:0 14px}.section-photo{height:230px}.haramain-art{min-height:310px}}
 @media(hover:none){.hero-photo img,.section-photo img,.haramain-photo{transform:none!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.motion-ready .reveal,.journey-card,.service-card,.project-card,.opportunity-card,.statement-card,.sector-item,.hero-photo img,.section-photo img,.haramain-photo{transition:none!important;transform:none!important}}
+
+/* Use the exact supplied logo canvas and keep the launch-plan card clear of the hero photo. */
+.header-row{height:132px}
+.brand{width:250px}
+.brand img{width:100%;height:auto;aspect-ratio:1456/732;object-fit:contain;object-position:center}
+html[dir="rtl"] .brand img{object-position:center}
+.hero-visual{padding-top:0;display:grid;gap:18px;align-self:start}
+.hero-photo{position:relative;inset:auto;width:100%;height:300px;z-index:1}
+.hero-visual .visual-frame{margin-inline:0;z-index:2}
+.footer-grid{grid-template-columns:320px 1fr;align-items:center}
+.footer-logo{width:320px;height:auto;aspect-ratio:1456/732;object-fit:contain;background:#fff;border-radius:14px}
+@media(max-width:1060px){.header-row{height:116px}.brand{width:220px}.footer-grid{grid-template-columns:280px 1fr}.footer-logo{width:280px}}
+@media(max-width:720px){.header-row{height:96px}.brand{width:172px}.hero-photo{height:230px}.hero-visual{gap:14px}.footer-grid{grid-template-columns:1fr}.footer-logo{width:min(100%,300px)}}
