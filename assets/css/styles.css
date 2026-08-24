@@ -119,3 +119,98 @@ html[dir="rtl"] .event-item:hover{transform:translateX(-2px)}
 
 /* Safwah editorial rule: no decorative dash before small headings. */
 .eyebrow>span:first-child{display:none}
+
+/* Accessible typography scale */
+.desktop-nav a{font-size:14px;min-height:44px;display:flex;align-items:center}
+.language-control select{font-size:14px;height:40px}
+.button,.button-large{font-size:14px;min-height:44px}
+.text-link{font-size:14px;min-height:32px}
+.eyebrow{font-size:12px;line-height:1.6}
+.hero-lead,.page-hero p{font-size:17px}
+.hero-trust span{font-size:12px;line-height:1.5}
+.visual-topline{font-size:12px}
+.hero-step b{font-size:14px}
+.hero-step small{font-size:12px;line-height:1.5}
+.hero-step i{font-size:12px}
+.visual-note{font-size:13px;line-height:1.65}
+.strip-inner{font-size:12px;line-height:1.65}
+.section-heading p,.section-lead{font-size:16px;line-height:1.75}
+.journey-card .num{font-size:12px}
+.journey-card h3{font-size:17px}
+.journey-card p{font-size:14px;line-height:1.65}
+.authority-fallback{font-size:12px}
+.service-tag{font-size:12px}
+.service-card h3{font-size:19px}
+.service-card p{font-size:14px;line-height:1.65}
+.provider-line span,.provider-line a{font-size:12px;line-height:1.5}
+.provider-line a{padding-block:6px}
+.search-box input{font-size:16px}
+.filter-button{font-size:12px;min-height:36px}
+.results-count{font-size:12px}
+.disclaimer-card p{font-size:13px;line-height:1.7}
+.feature-item i{font-size:12px}
+.feature-item b{font-size:15px}
+.feature-item span{font-size:13px;line-height:1.65}
+.panel-kicker{font-size:12px;line-height:1.5}
+.sector-item b{font-size:15px}
+.sector-item span{font-size:13px;line-height:1.5}
+.source-note,.source-box{font-size:12px;line-height:1.65}
+.project-card .num{font-size:12px}
+.project-card p{font-size:14px;line-height:1.65}
+.tags span{font-size:12px}
+.opportunity-card i{font-size:13px}
+.opportunity-card h3{font-size:18px}
+.opportunity-card p{font-size:14px;line-height:1.65}
+.haramain-copy>p{font-size:16px;line-height:1.75}
+.haramain-note{font-size:12px!important;line-height:1.7}
+.about-story{font-size:16px}
+.statement-card span{font-size:12px}
+.value-card{font-size:13px}
+.contact-copy p{font-size:15px;line-height:1.75}
+.contact-details span{font-size:12px;line-height:1.5}
+.contact-details a,.contact-details strong{font-size:14px;line-height:1.6}
+.contact-details a,.hub-source a,.source-note a{min-height:24px;display:inline-flex;align-items:center}
+.footer-grid>p,.footer-legal{font-size:12px;line-height:1.7}
+.footer-bottom{font-size:12px;line-height:1.6}
+.footer-bottom a{min-height:32px;display:flex;align-items:center}
+.no-results{font-size:14px}
+.metric span{font-size:12px;line-height:1.5}
+.cta-band p{font-size:14px;line-height:1.6}
+.mobile-menu a{font-size:14px;min-height:44px;display:flex;align-items:center}
+
+.hub-intro{font-size:16px;line-height:1.75}
+.hub-clock{font-size:12px}
+.hub-clock strong{font-size:15px}
+.metric-label{font-size:13px;line-height:1.5;min-height:40px}
+.hub-metric strong small{font-size:12px}
+.metric-period{font-size:12px;line-height:1.5}
+.metric-source{font-size:12px;line-height:1.5}
+.hub-kicker{font-size:12px}
+.hub-status{font-size:12px}
+.hub-form label{font-size:14px;line-height:1.5}
+.hub-form input,.hub-form select{font-size:16px}
+.hub-results span{font-size:13px;line-height:1.5}
+.hub-results strong{font-size:22px}
+.hub-note{font-size:12px;line-height:1.65}
+.hub-source{font-size:12px;line-height:1.5}
+.hub-all-events{font-size:12px;min-height:32px}
+.event-filter{font-size:12px;min-height:36px;padding:8px 12px}
+.event-item time{font-size:12px;line-height:1.5}
+.event-copy h4{font-size:15px;line-height:1.45}
+.event-copy p{font-size:13px;line-height:1.5}
+.event-empty{font-size:14px}
+.hub-consult>div>span{font-size:12px}
+
+@media(max-width:720px){
+  .hero-lead,.page-hero p,.section-heading p,.section-lead{font-size:16px}
+  .hub-card h3{font-size:24px}
+  .event-copy h4{font-size:15px}
+}
+
+@media(max-width:420px){
+  .header-row{gap:6px}
+  .brand{width:132px}
+  .header-actions{gap:6px}
+  .language-control{padding-inline:6px}
+  .language-control select{width:44px;font-size:13px}
+}
