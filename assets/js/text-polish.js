@@ -5,6 +5,11 @@
 
   function clean(root = document.documentElement) {
     if (!root) return;
+    const scope = root.nodeType === Node.ELEMENT_NODE ? root : root.parentElement;
+    if (scope) {
+      if (scope.matches?.('.eyebrow > span:first-child:empty')) scope.remove();
+      else scope.querySelectorAll?.('.eyebrow > span:first-child:empty').forEach(node => node.remove());
+    }
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     const nodes = [];
     while (walker.nextNode()) {
@@ -28,4 +33,3 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once: true});
   else start();
 })();
-
